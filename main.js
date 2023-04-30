@@ -46,19 +46,9 @@ const sortForm = () => {
   renderToDom('#form', domString);
 };
 
-const houseButtons = () => {
-  let domString = `<button class="btn btn-primary" type="button">All</button>
-  <button class="btn btn-primary" type="button">Griffyndor</button>
-  <button class="btn btn-primary" type="button">Hufflepuff</button>
-  <button class="btn btn-primary" type="button">Ravenclaw</button>
-  <button class="btn btn-primary" type="button">Slytherin</button>
-  `;
-  renderToDom('#houseButtons', domString);
-}
-
-const sortedStudentCards = (array) => {
+const studentCards = (array) => {
   let domString = "";
-  for (const student of array) {
+  for (student of array) {
     domString += `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${student.studentName}</h5>
@@ -69,11 +59,65 @@ const sortedStudentCards = (array) => {
   renderToDom('#sortedStudents',domString);
 }
 
-// event listener
+//filter through buttons
+const houseButtons = () => {
+  let domString = `<button class="btn btn-primary" type="button" id="buttonAll">All</button>
+  <button class="btn btn-primary" type="button" id="buttonGriffyndor">Griffyndor</button>
+  <button class="btn btn-primary" type="button" id="buttonHufflepuff">Hufflepuff</button>
+  <button class="btn btn-primary" type="button" id="buttonRavenclaw">Ravenclaw</button>
+  <button class="btn btn-primary" type="button" id="buttonSlytherin">Slytherin</button>
+  `;
+  renderToDom('#houseButtons', domString);
+}
+
+const filter = (array, houseString) => {
+  const sortedStudentArray = [];
+  for(const student of array) {
+    if(student.studentHouse === houseString){
+      sortedStudentArray.push(student);
+    }
+  }
+  return sortedStudentArray;
+}
+
+const filterButtons = () => {
+  const showAllStudents = document.querySelector("#buttonAll");
+  const showAllGriffyndor = document.querySelector("#buttonGriffyndor");
+  const showAllHufflepuff = document.querySelector("#buttonHufflepuff");
+  const showAllRavenclaw = document.querySelector("#buttonRavenclaw");
+  const showAllSlytherin = document.querySelector("#buttonSlytherin");
+
+  showAllGriffyndor.addEventListener('click', () => {
+    const allGriffyndor = filter(students, 'Griffyndor');
+    studentCards(allGriffyndor);
+  });
+  
+  showAllSlytherin.addEventListener('click', () => {
+    const allSlytherin = filter(students, 'Slytherin');
+    studentCards(allSlytherin);
+  });
+
+  showAllHufflepuff.addEventListener('click', () => {
+    const allSlytherin = filter(students, 'Hufflepuff');
+    studentCards(allSlytherin);
+  });
+
+  showAllRavenclaw.addEventListener('click', () => {
+    const allSlytherin = filter(students, 'Ravenclaw');
+    studentCards(allSlytherin);
+  });
+
+  showAllStudents.addEventListener('click', () => studentCards(students));
+}
+
+
+
+// event listeners dom
 
 const sortingButton = document.querySelector('#sortingButton');
 sortingButton.addEventListener('click', (e) => {
   sortForm();
-  houseButtons()
-  sortedStudentCards(students);
+  houseButtons();
+  studentCards(students);
+  filterButtons();
 });
