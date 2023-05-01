@@ -14,13 +14,15 @@ const students = [
 
 const expelled = [];
 
-// dom render
+// render DOM function
 
 const renderToDom = (divID, htmlToRender) => {
   const selectedDiv = document.querySelector(divID);
   selectedDiv.innerHTML = htmlToRender;
 };
  
+//main welcome card 
+
 const welcome = () => {
   let domString = `<div class="card">
   <div class="card-header">
@@ -33,19 +35,21 @@ const welcome = () => {
   </div>`;
   renderToDom('#sorting', domString);
 };
-welcome();
+welcome(); //this callback may need to relocate to the init()
 
+// input form
 const sortForm = () => {
   let domString = `<form>
   <div class="mb-3">
     <label class="form-label">Student Name</label>
-    <input type="text" class="form-control" id="Student Name">
+    <input type="text" class="form-control" id="submitName">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>`; 
   renderToDom('#form', domString);
 };
 
+// student cards
 const studentCards = (array) => {
   let domString = "";
   for (student of array) {
@@ -57,9 +61,9 @@ const studentCards = (array) => {
   </div>`
   }
   renderToDom('#sortedStudents',domString);
-}
+};
 
-//filter through buttons
+//filter buttons
 const houseButtons = () => {
   let domString = `<button class="btn btn-primary" type="button" id="buttonAll">All</button>
   <button class="btn btn-primary" type="button" id="buttonGriffyndor">Griffyndor</button>
@@ -68,7 +72,7 @@ const houseButtons = () => {
   <button class="btn btn-primary" type="button" id="buttonSlytherin">Slytherin</button>
   `;
   renderToDom('#houseButtons', domString);
-}
+};
 
 const filter = (array, houseString) => {
   const sortedStudentArray = [];
@@ -78,7 +82,7 @@ const filter = (array, houseString) => {
     }
   }
   return sortedStudentArray;
-}
+};
 
 const filterButtons = () => {
   const showAllStudents = document.querySelector("#buttonAll");
@@ -108,7 +112,45 @@ const filterButtons = () => {
   });
 
   showAllStudents.addEventListener('click', () => studentCards(students));
-}
+};
+
+//add and sort new students using form
+
+const formFunction = () => {
+  const form = document.querySelector('form');
+
+  const sortHouse = (e) => {
+    //per W3schools this preventDefault "cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur,"
+    e.preventDefault();
+   
+    const random = Math.floor(Math.random() * 4) + 1;
+   
+    let randomHouse = "";
+    switch (random) {
+      case 1:
+        randomHouse = "Griffyndor";
+        break;
+      case 2:
+        randomHouse = "Hufflepuff";
+        break;
+      case 3:
+        randomHouse = "Ravenclaw";
+        break;
+      case 4: 
+        randomHouse = "Slytherin";
+        break;
+    }  
+    const newSortedStudent = {
+      id: students.length + 1,
+      studentName: document.querySelector('#submitName').value,
+      studentHouse: randomHouse,
+    }
+    students.unshift(newSortedStudent);
+    studentCards(students);
+    form.reset();
+  }
+  form.addEventListener('submit', sortHouse);
+};
 
 
 
@@ -120,4 +162,5 @@ sortingButton.addEventListener('click', (e) => {
   houseButtons();
   studentCards(students);
   filterButtons();
+  formFunction();
 });
