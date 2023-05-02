@@ -37,6 +37,19 @@ const welcome = () => {
 };
 welcome(); //this callback may need to relocate to the init()
 
+// sorted title
+const sortTitle = () => {
+  let domString = `<h1>First Year Students:</h1>`;
+  renderToDom('#sortedTitle', domString);
+};
+
+// expelled title
+const expTitle = () => {
+  let domString = `<h1>Death Eaters:</h1>`;
+  renderToDom('#expelledTitle', domString);
+};
+
+
 // input form
 const sortForm = () => {
   let domString = `<form>
@@ -49,6 +62,7 @@ const sortForm = () => {
   renderToDom('#form', domString);
 };
 
+
 // student cards
 const studentCards = (array) => {
   let domString = "";
@@ -57,11 +71,41 @@ const studentCards = (array) => {
     <div class="card-body">
       <h5 class="card-title">${student.studentName}</h5>
       <p class="card-text">${student.studentHouse}</p>
+      <button class="btn btn-danger id="expel--${students.id}">Expel</button>
     </div>
   </div>`
   }
   renderToDom('#sortedStudents',domString);
 };
+
+// expelled students cards
+const expelledCards = (array) => {
+  let domString = "";
+  for (student of array) {
+    domString += `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${student.studentName}</h5>
+      <p class="card-text">IS EXPELLED!</p>
+    </div>
+  </div>`
+  }
+  renderToDom('#expelledStudents',domString);
+};
+
+
+// expelled students function
+
+const expelSorted = document.querySelector('#sortedStudents');
+
+expelSorted.addEventListener('click', (e) => {
+  alert(e.target.id);
+  const [, id] = e.target.id.split("--");
+  const index = students.findIndex(student => student.id === Number(id));
+  expelled.push(...students.splice(index, 1));
+  //... spread syntax
+  studentCards(students);
+  expelledCards(expelled);
+});
 
 //filter buttons
 const houseButtons = () => {
@@ -145,7 +189,7 @@ const formFunction = () => {
       studentName: document.querySelector('#submitName').value,
       studentHouse: randomHouse,
     }
-    students.unshift(newSortedStudent);
+    students.push(newSortedStudent);
     studentCards(students);
     form.reset();
   }
@@ -158,9 +202,12 @@ const formFunction = () => {
 
 const sortingButton = document.querySelector('#sortingButton');
 sortingButton.addEventListener('click', (e) => {
+  sortTitle();
+  expTitle();
   sortForm();
   houseButtons();
   studentCards(students);
   filterButtons();
   formFunction();
+  expelledCards(expelled);
 });
