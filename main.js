@@ -24,12 +24,12 @@ const renderToDom = (divID, htmlToRender) => {
 //main welcome card 
 
 const welcome = () => {
-  let domString = `<div class="card">
+  let domString = `<div class="welcome-card">
   <div class="card-header">
     Hogwarts School Year of 2023-2024
   </div>
   <div class="card-body">
-    <h5 class="card-title">The Hogwarts Sorting Hat</h5>
+    <h5 class="card-title-main">The Hogwarts Sorting Hat</h5>
     <p class="card-text">Welcome to Hogwarts, first-year student. To determine which House you will be a part of, please click the button below:</p>
     <a href="#" class="btn btn-primary" id="sortingButton">Take me to the Sorting Hat</a>
   </div>`;
@@ -57,7 +57,7 @@ const sortForm = () => {
     <label class="form-label">Student Name</label>
     <input type="text" class="form-control" id="submitName">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">SORT!</button>
 </form>`; 
   renderToDom('#form', domString);
 };

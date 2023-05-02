@@ -1,3 +1,19 @@
-#expelledStudents {
-  margin-top: 30px;
+body {
+  background-image: url("https://images.pexels.com/photos/4592706/pexels-photo-4592706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  color: white;
+}
+
+#sorting {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-card {
+  text-align: center;
+}
+
+.card-title-main {
+  font-family: 'Great Vibes', cursive;
+  font-size: 100px;
 }
