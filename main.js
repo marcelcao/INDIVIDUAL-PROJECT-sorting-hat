@@ -9,7 +9,7 @@ const students = [
     id: 2,
     studentName: "Draco Malfoy", 
     studentHouse: "Slytherin",
-  }
+  },
 ];
 
 const expelled = [];
@@ -30,7 +30,7 @@ const welcome = () => {
   </div>
   <div class="card-body">
     <h5 class="card-title-main">The Hogwarts Sorting Hat</h5>
-    <p class="card-text">Welcome to Hogwarts, first-year student. To determine which House you will be a part of, please click the button below:</p>
+    <p class="card-text-welcome">Welcome to Hogwarts, first-year student. To determine which House you will be a part of, please click the button below:</p>
     <a href="#" class="btn btn-primary" id="sortingButton">Take me to the Sorting Hat</a>
   </div>`;
   renderToDom('#sorting', domString);
@@ -52,13 +52,14 @@ const expTitle = () => {
 
 // input form
 const sortForm = () => {
-  let domString = `<form>
+  let domString = `
+  <img class="hat-sort" src="https://www.gamespot.com/a/uploads/original/1599/15997278/4096013-sortinghatthumb.png">
+  <form>
   <div class="mb-3">
-    <label class="form-label">Student Name</label>
-    <input type="text" class="form-control" id="submitName">
+    <input type="text" class="form-control" id="submitName" placeholder="Type Name Here">
   </div>
-  <button type="submit" class="btn btn-primary">SORT!</button>
-</form>`; 
+  <button type="submit" class="sort-me">Sort</button>
+  </form>`; 
   renderToDom('#form', domString);
 };
 
@@ -71,7 +72,7 @@ const studentCards = (array) => {
     <div class="card-body">
       <h5 class="card-title">${student.studentName}</h5>
       <p class="card-text">${student.studentHouse}</p>
-      <button class="btn btn-danger id="expel--${students.id}">Expel</button>
+      <button class="btn btn-danger" id="expel--${student.id}">Expel</button>
     </div>
   </div>`
   }
@@ -163,9 +164,9 @@ const filterButtons = () => {
 const formFunction = () => {
   const form = document.querySelector('form');
 
-  const sortHouse = (e) => {
+  const sortHouse = () => {
     //per W3schools this preventDefault "cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur,"
-    e.preventDefault();
+    // e.preventDefault(); move this to form event listener
    
     const random = Math.floor(Math.random() * 4) + 1;
    
@@ -191,9 +192,14 @@ const formFunction = () => {
     }
     students.push(newSortedStudent);
     studentCards(students);
-    form.reset();
   }
-  form.addEventListener('submit', sortHouse);
+  form.addEventListener('submit', (e) => {
+    if (document.getElementById('submitName').value === "") {
+      alert('Please enter your name');
+    } else {sortHouse()};
+    e.preventDefault();
+    form.reset();
+  });
 };
 
 
