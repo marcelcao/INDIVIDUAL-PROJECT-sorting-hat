@@ -46,7 +46,7 @@ body {
 }
 
 .card-text-welcome {
-  font-size: large;
+  font-size: 20px;
   font-family: 'Sarabun', sans-serif;
   font-weight: bolder;
 }
@@ -108,4 +108,28 @@ body {
 #buttonAll:hover {
   color: rgb(210, 243, 241);
   box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.container-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.container-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgb(167, 203, 238);
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-bottom: 75px;
+  opacity: .6;
+}
+
+.title-container {
+  background-color: rgb(167, 203, 238);
+
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
