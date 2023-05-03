@@ -30,7 +30,9 @@ const welcome = () => {
   </div>
   <div class="card-body">
     <h5 class="card-title-main">The Hogwarts Sorting Hat</h5>
+    <div class="title-container">
     <p class="card-text-welcome">Welcome to Hogwarts, first-year student. To determine which House you will be a part of, please click the button below:</p>
+    </div>
     <a href="#" class="btn btn-primary" id="sortingButton">Take me to the Sorting Hat</a>
   </div>`;
   renderToDom('#sorting', domString);
