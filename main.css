@@ -15,5 +15,97 @@ body {
 
 .card-title-main {
   font-family: 'Great Vibes', cursive;
-  font-size: 100px;
+  font-size: 120px;
+  color:rgb(167, 203, 238);
+  -webkit-text-stroke-color: rgb(31, 54, 77);
+  -webkit-text-stroke-width: 1px;
+}
+
+.card-header {
+  color: white;
+  margin-bottom: 30px;
+  font-family: 'Sarabun', sans-serif;
+  font-style: italic;
+}
+
+#sortingButton {
+ color: rgb(76, 18, 101);
+ border: 1px solid white;
+ font-size: large;
+ background: rgba( 231, 200, 26, 0.85 );
+ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+ backdrop-filter: blur( 1.5px );
+ -webkit-backdrop-filter: blur( 1.5px );
+ border-radius: 10px;
+ margin-top: 20px;
+}
+
+#sortingButton:hover {
+  color: rgb(210, 243, 241);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.card-text-welcome {
+  font-size: large;
+  font-family: 'Sarabun', sans-serif;
+  font-weight: bolder;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+#submitName {
+  margin-top: 30px;
+  width: 400px;
+  height: 50px;
+  font-size: larger;
+  color: blueviolet;
+}
+
+.sort-me {
+  color: rgb(76, 18, 101);
+  border: 1px solid white;
+  font-size: large;
+  background: rgba( 231, 200, 26, 0.85 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  border-radius: 10px;
+  text-align: right;
+}
+
+.sort-me:hover {
+  color: rgb(210, 243, 241);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+#houseButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  justify-content: space-evenly ;
+}
+
+.hat-sort {
+  height: auto;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+#buttonAll {
+  width: 300px;
+  height: 50px;
+  color: rgb(76, 18, 101);
+  background: rgba( 231, 200, 26, 0.85 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+}
+
+#buttonAll:hover {
+  color: rgb(210, 243, 241);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
