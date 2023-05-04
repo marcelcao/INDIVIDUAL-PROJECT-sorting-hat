@@ -1,22 +1,26 @@
 body {
   background-image: url("https://images.pexels.com/photos/4592706/pexels-photo-4592706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-  color: white;
 }
 
 #sorting {
-  margin-top: 50px;
+  margin: 75px 75px 20px 75px;
   display: flex;
   justify-content: center;
+  background-color: rgb(241, 241, 237);
+  padding-bottom: 50px;
+  border-radius: 10px;
 }
 
 .welcome-card {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card-title-main {
   font-family: 'Great Vibes', cursive;
-  font-size: 120px;
-  color:rgb(167, 203, 238);
+  font-size: 110px;
+  color:rgb(81, 134, 184);
   -webkit-text-stroke-color: rgb(31, 54, 77);
   -webkit-text-stroke-width: 1px;
 }
@@ -49,16 +53,22 @@ body {
   font-size: 20px;
   font-family: 'Sarabun', sans-serif;
   font-weight: bolder;
+  color: white;
 }
 
 #form {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
 }
 
+.mb-3 {
+  display: flex;
+  justify-content: center;
+}
 
 #submitName {
-  margin-top: 30px;
+  margin-top: 10px;
   width: 400px;
   height: 50px;
   font-size: larger;
@@ -69,12 +79,13 @@ body {
   color: rgb(76, 18, 101);
   border: 1px solid white;
   font-size: large;
+  width: 80px;
   background: rgba( 231, 200, 26, 0.85 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
   border-radius: 10px;
-  text-align: right;
+  text-align: center;
 }
 
 .sort-me:hover {
@@ -84,52 +95,105 @@ body {
 
 #houseButtons {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  justify-content: space-evenly ;
+  justify-content: space-evenly;
+  margin: 30px 75px 0px 75px;
+  background-color: rgb(241, 241, 237); 
 }
 
 .hat-sort {
   height: auto;
-  max-width: 600px;
-  margin-top: 30px;
+  max-width: 700px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  border: 10px ridge rgb(76, 18, 101) ;
 }
 
 #buttonAll {
-  width: 300px;
-  height: 50px;
+  font-size: 20px;
   color: rgb(76, 18, 101);
-  background: rgba( 231, 200, 26, 0.85 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 1.5px );
-  -webkit-backdrop-filter: blur( 1.5px );
+  background-color: rgb(241, 241, 237);
+  border: 0px;
 }
 
-#buttonAll:hover {
-  color: rgb(210, 243, 241);
-  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+#buttonGriffyndor {
+  font-size: 20px;
+  color: rgb(76, 18, 101);
+  background-color: rgb(241, 241, 237);
+  border: 0px;
 }
+
+#buttonSlytherin{
+  font-size: 20px;
+  color: rgb(76, 18, 101);
+  background-color: rgb(241, 241, 237);
+  border: 0px;
+}
+
+#buttonHufflepuff {
+  font-size: 20px;
+  color: rgb(76, 18, 101);
+  background-color: rgb(241, 241, 237);
+  border: 0px;
+}
+
+#buttonRavenclaw{
+  font-size: 20px;
+  color: rgb(76, 18, 101);
+  background-color: rgb(241, 241, 237);
+  border: 0px;
+}
+
 
 .container-1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  background-color: rgb(76, 18, 101);
+  margin: 0px 75px 0px 75px;
+  color: rgb(241, 241, 237);
+  font-family: 'Sarabun', sans-serif;
+  font-size: small;
 }
 
 .container-2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: rgb(167, 203, 238);
+  background-color: rgb(241, 241, 237);
   margin-left: 75px;
   margin-right: 75px;
   margin-bottom: 75px;
-  opacity: .6;
 }
 
 .title-container {
-  background-color: rgb(167, 203, 238);
-
+  background-color: rgb(76, 18, 101);
   padding-top: 10px;
   padding-bottom: 5px;
+}
+
+.card-body-Griffyndor {
+  background-color: #740001;
+  color: #ffd800;
+  margin-top: 10px;
+}
+
+.card-body-Hufflepuff {
+  background-color: #ffd800;
+  margin-top: 10px;
+}
+
+.card-body-Ravenclaw {
+  background-color: #0E1A40;
+  color: silver;
+  margin-top: 10px;
+}
+
+.card-body-Slytherin {
+  background-color: #1A472A;
+  color: silver;
+  margin-top: 10px;
+}
+
+.card-title {
+  font-family: 'Great Vibes', cursive;
 }

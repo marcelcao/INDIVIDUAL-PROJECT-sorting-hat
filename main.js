@@ -25,10 +25,8 @@ const renderToDom = (divID, htmlToRender) => {
 
 const welcome = () => {
   let domString = `<div class="welcome-card">
-  <div class="card-header">
-    Hogwarts School Year of 2023-2024
-  </div>
   <div class="card-body">
+    <img class="hat-sort" src="https://www.gamespot.com/a/uploads/original/1599/15997278/4096013-sortinghatthumb.png">
     <h5 class="card-title-main">The Hogwarts Sorting Hat</h5>
     <div class="title-container">
     <p class="card-text-welcome">Welcome to Hogwarts, first-year student. To determine which House you will be a part of, please click the button below:</p>
@@ -41,13 +39,13 @@ welcome(); //this callback may need to relocate to the init()
 
 // sorted title
 const sortTitle = () => {
-  let domString = `<h1>First Year Students:</h1>`;
+  let domString = `<h1>First Year Students</h1>`;
   renderToDom('#sortedTitle', domString);
 };
 
 // expelled title
 const expTitle = () => {
-  let domString = `<h1>Death Eaters:</h1>`;
+  let domString = `<h1>Expelled</h1>`;
   renderToDom('#expelledTitle', domString);
 };
 
@@ -55,7 +53,6 @@ const expTitle = () => {
 // input form
 const sortForm = () => {
   let domString = `
-  <img class="hat-sort" src="https://www.gamespot.com/a/uploads/original/1599/15997278/4096013-sortinghatthumb.png">
   <form>
   <div class="mb-3">
     <input type="text" class="form-control" id="submitName" placeholder="Type Name Here">
@@ -71,7 +68,7 @@ const studentCards = (array) => {
   let domString = "";
   for (student of array) {
     domString += `<div class="card" style="width: 18rem;">
-    <div class="card-body">
+    <div class="card-body-${student.studentHouse === "Griffyndor" ? "Griffyndor" : (student.studentHouse === "Hufflepuff" ? "Hufflepuff" : (student.studentHouse === "Ravenclaw" ? "Ravenclaw" : "Slytherin"))}">
       <h5 class="card-title">${student.studentName}</h5>
       <p class="card-text">${student.studentHouse}</p>
       <button class="btn btn-danger" id="expel--${student.id}">Expel</button>
@@ -81,6 +78,8 @@ const studentCards = (array) => {
   renderToDom('#sortedStudents',domString);
 };
 
+
+
 // expelled students cards
 const expelledCards = (array) => {
   let domString = "";
@@ -88,7 +87,7 @@ const expelledCards = (array) => {
     domString += `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${student.studentName}</h5>
-      <p class="card-text">IS EXPELLED!</p>
+      <p class="card-text">joined Voldemort's amry</p>
     </div>
   </div>`
   }
