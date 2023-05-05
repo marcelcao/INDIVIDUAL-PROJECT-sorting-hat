@@ -86,7 +86,7 @@ const expelledCards = (array) => {
     domString += `<div class="card-exp" style="width: 15rem;">
     <div class="card-body-exp">
       <h5 class="card-title">${student.studentName}</h5>
-      <p class="card-text">joined Voldemort's amry</p>
+      <p class="card-text">joined Voldemort's army</p>
     </div>
   </div>`
   }
