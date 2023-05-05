@@ -1,15 +1,15 @@
 // students
 const students = [
-  {
-    id: 1,
-    studentName: "Harry Potter", 
-    studentHouse: "Griffyndor",
-  },
-  {
-    id: 2,
-    studentName: "Draco Malfoy", 
-    studentHouse: "Slytherin",
-  },
+  // {
+  //   id: 1,
+  //   studentName: "Harry Potter", 
+  //   studentHouse: "Griffyndor",
+  // },
+  // {
+  //   id: 2,
+  //   studentName: "Draco Malfoy", 
+  //   studentHouse: "Slytherin",
+  // },
 ];
 
 const expelled = [];
@@ -35,7 +35,6 @@ const welcome = () => {
   </div>`;
   renderToDom('#sorting', domString);
 };
-welcome(); //this callback may need to relocate to the init()
 
 // sorted title
 const sortTitle = () => {
@@ -67,11 +66,11 @@ const sortForm = () => {
 const studentCards = (array) => {
   let domString = "";
   for (student of array) {
-    domString += `<div class="card" style="width: 18rem;">
+    domString += `<div class="card" style="width: 15rem;">
     <div class="card-body-${student.studentHouse === "Griffyndor" ? "Griffyndor" : (student.studentHouse === "Hufflepuff" ? "Hufflepuff" : (student.studentHouse === "Ravenclaw" ? "Ravenclaw" : "Slytherin"))}">
       <h5 class="card-title">${student.studentName}</h5>
       <p class="card-text">${student.studentHouse}</p>
-      <button class="btn btn-danger" id="expel--${student.id}">Expel</button>
+      <button class="expel-btn" id="expel--${student.id}">Expel</button>
     </div>
   </div>`
   }
@@ -84,8 +83,8 @@ const studentCards = (array) => {
 const expelledCards = (array) => {
   let domString = "";
   for (student of array) {
-    domString += `<div class="card" style="width: 18rem;">
-    <div class="card-body">
+    domString += `<div class="card-exp" style="width: 15rem;">
+    <div class="card-body-exp">
       <h5 class="card-title">${student.studentName}</h5>
       <p class="card-text">joined Voldemort's amry</p>
     </div>
@@ -100,7 +99,7 @@ const expelledCards = (array) => {
 const expelSorted = document.querySelector('#sortedStudents');
 
 expelSorted.addEventListener('click', (e) => {
-  alert(e.target.id);
+  alert("Are you sure you want to expel this student?");
   const [, id] = e.target.id.split("--");
   const index = students.findIndex(student => student.id === Number(id));
   expelled.push(...students.splice(index, 1));
@@ -170,6 +169,7 @@ const formFunction = () => {
     // e.preventDefault(); move this to form event listener
    
     const random = Math.floor(Math.random() * 4) + 1;
+    
    
     let randomHouse = "";
     switch (random) {
@@ -203,6 +203,10 @@ const formFunction = () => {
   });
 };
 
+const init = () => {
+  welcome(); 
+};
+init();
 
 
 // event listeners dom
