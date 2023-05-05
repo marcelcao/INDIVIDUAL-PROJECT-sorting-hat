@@ -3,7 +3,7 @@
 
 This application is a digital version of The Hogwarts Sorting Hat, which randomly sorts first-year Hogwarts students into one of the four Hogwarts Houses: Griffyndor, Hufflepuff, Ravenclaw and Slytherin.
 
-https://mara-sorting-hat.netlify.app/
+
 
 ## About the User 
 - This application is for all First-Years admitted to Hogwarts for the school year 2023-2024
@@ -19,19 +19,14 @@ to expulsion
 - Name Cards can be filtered by House using the House Filter buttons
 
 
-## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
+## Loom Video of The Hogwarts Sorting Hat <!-- A loom link is sufficient -->
 https://www.loom.com/share/8afd819c991c42f79fca03445138cc42
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](#your-link)
-- [Wireframes](#your-link)
-- [Project Board](#your-link)
-
-## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-PLACE CODE SNIPPET HERE
+- [Check out the deployed site] https://mara-sorting-hat.netlify.app/
 
 ## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
-<img width="1148" alt="Your Alt" src="your-link.png">
+<img width="1080" alt="Mara's Sorting Hat Screenshot" src="https://github.com/marcelcao/INDIVIDUAL-PROJECT-sorting-hat/blob/main/screenshot.png?raw=true">
 
 ## Contributors
 - Mara Caoile (https://github.com/marcelcao)
